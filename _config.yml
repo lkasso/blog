@@ -1,5 +1,5 @@
 # Laura Kassovic personal blog
-# Built with Jekyll + Chirpy and intended for GitHub Pages.
+# Built with Jekyll + Chirpy
 
 lang: en
 timezone: America/Los_Angeles
@@ -27,17 +27,17 @@ social:
 # Theme
 theme: jekyll-theme-chirpy
 
-# Avatar shown in the sidebar. Add your own image later at assets/img/avatar.png
+# Avatar (add file later)
 avatar: /assets/img/avatar.png
 
-# Sidebar social links. Supported keys are defined by Chirpy.
+# Social preview image (optional)
 social_preview_image: /assets/img/social-preview.png
 
-# Comments disabled by default.
+# Comments (disabled)
 comments:
   provider:
 
-# Analytics disabled by default. Add Plausible/GA later if desired.
+# Analytics (disabled for now)
 analytics:
   google:
     id:
@@ -57,19 +57,40 @@ analytics:
 # Pagination
 paginate: 10
 
-# Theme mode: light, dark, or blank for system default.
+# Theme mode: light | dark | (blank = system)
 theme_mode:
 
-# SEO / feed / sitemap plugins. These are compatible with GitHub Pages builds via Actions.
+# Plugins (no remote theme!)
 plugins:
-  - jekyll-remote-theme
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-archives
 
-# Exclude development and project files from the final site.
+# Required for Chirpy archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+# Defaults (recommended for posts)
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+
+# Exclude dev files
 exclude:
   - README.md
   - Gemfile
