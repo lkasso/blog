@@ -1,0 +1,80 @@
+# Laura Kassovic personal blog
+# Built with Jekyll + Chirpy and intended for GitHub Pages.
+
+lang: en
+timezone: America/Los_Angeles
+
+title: Laura Kassovic
+tagline: OSS + enterprise systems, Gradle internals, and AI workflows that actually work
+description: >-
+  Writing about Gradle, build systems, open source in enterprise, developer experience,
+  and AI-assisted software workflows.
+
+url: "https://laura.kassovic.com"
+baseurl: ""
+
+github:
+  username: lkasso
+
+social:
+  name: Laura Kassovic
+  email: laura@kassovic.com
+  links:
+    - https://github.com/lkasso
+    - https://x.com/oss_enterprise
+    - https://bsky.app/profile/oss_enterprise.bsky.social
+
+# Theme
+theme: jekyll-theme-chirpy
+
+# Avatar shown in the sidebar. Add your own image later at assets/img/avatar.png
+avatar: /assets/img/avatar.png
+
+# Sidebar social links. Supported keys are defined by Chirpy.
+social_preview_image: /assets/img/social-preview.png
+
+# Comments disabled by default.
+comments:
+  provider:
+
+# Analytics disabled by default. Add Plausible/GA later if desired.
+analytics:
+  google:
+    id:
+  goatcounter:
+    id:
+  umami:
+    id:
+    domain:
+  matomo:
+    id:
+    domain:
+  cloudflare:
+    id:
+  fathom:
+    id:
+
+# Pagination
+paginate: 10
+
+# Theme mode: light, dark, or blank for system default.
+theme_mode:
+
+# SEO / feed / sitemap plugins. These are compatible with GitHub Pages builds via Actions.
+plugins:
+  - jekyll-remote-theme
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-include-cache
+
+# Exclude development and project files from the final site.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
