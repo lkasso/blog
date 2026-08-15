@@ -81,6 +81,13 @@ jekyll-archives:
     category: /categories/:name/
     tag: /tags/:name/
 
+# Required by Chirpy: without this, nothing in _tabs is ever output and the
+# sidebar renders with no navigation links.
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
 # Defaults (recommended for posts)
 defaults:
   - scope:
@@ -89,6 +96,12 @@ defaults:
     values:
       layout: post
       comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
 
 # Exclude dev files
 exclude:
