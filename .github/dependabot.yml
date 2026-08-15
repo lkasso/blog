@@ -1,0 +1,44 @@
+version: 2
+
+updates:
+  # Ruby gems. Jekyll and the Chirpy theme move slowly, so weekly is plenty.
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: America/Los_Angeles
+    open-pull-requests-limit: 5
+    # Matches the Conventional Commits rule the repo follows: chore(deps): ...
+    commit-message:
+      prefix: chore
+      include: scope
+    # One PR for all routine minor/patch bumps instead of five. Majors still
+    # arrive individually, since those are the ones worth reading closely.
+    groups:
+      ruby-minor-and-patch:
+        patterns: ["*"]
+        update-types:
+          - minor
+          - patch
+
+  # Workflow actions. Catches the next Node runtime deprecation before it
+  # becomes an annotation on every run.
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: America/Los_Angeles
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: chore
+      include: scope
+    groups:
+      actions-minor-and-patch:
+        patterns: ["*"]
+        update-types:
+          - minor
+          - patch
