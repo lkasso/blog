@@ -10,6 +10,7 @@ gem "jekyll-sitemap"
 gem "jekyll-paginate"
 gem "jekyll-include-cache"
 
-group :development do
+group :development, :test do
   gem "webrick"
+  gem "html-proofer", "~> 5.0"
 end
