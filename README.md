@@ -30,7 +30,7 @@ Example front matter:
 ```yaml
 ---
 title: "My post title"
-date: 2026-05-17 09:00:00 -0700
+date: 2026-05-17
 categories: [Gradle]
 tags: [gradle, build-systems]
 ---
