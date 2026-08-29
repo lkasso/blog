@@ -1,0 +1,31 @@
+---
+---
+
+@import 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/*
+ * Hide the search UI.
+ *
+ * Hidden rather than deleted on purpose: the theme's commons.min.js calls
+ * addEventListener on #search-trigger without a null check, so removing the
+ * markup from topbar.html throws and takes the sidebar toggle down with it.
+ * display:none also keeps it out of the accessibility tree, so it is hidden
+ * from screen readers too, not just visually.
+ */
+#search,
+#search-trigger,
+#search-cancel,
+#search-result-wrapper {
+  display: none !important;
+}
+
+/* The topbar keeps its layout without the search box on the right. */
+#topbar-title {
+  margin-right: auto;
+}

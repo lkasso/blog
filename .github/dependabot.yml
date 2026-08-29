@@ -10,6 +10,14 @@ updates:
       time: "06:00"
       timezone: America/Los_Angeles
     open-pull-requests-limit: 5
+    # The theme is pinned to 7.0.x in the Gemfile: 7.1+ requires Ruby ~> 3.1,
+    # which local development cannot run. Without this, Dependabot proposes the
+    # bump again every week and merging it silently breaks local preview.
+    ignore:
+      - dependency-name: jekyll-theme-chirpy
+        update-types:
+          - version-update:semver-major
+          - version-update:semver-minor
     # Matches the Conventional Commits rule the repo follows: chore(deps): ...
     commit-message:
       prefix: chore

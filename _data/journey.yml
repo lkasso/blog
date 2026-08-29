@@ -1,0 +1,95 @@
+# Data behind the journey banner on /journey/.
+#
+# start / end: "YYYY-MM", or "present" for end.
+#   NOTE: the resume only records years, so every month below is a placeholder
+#   set to January. Adjust to real months and the bars shift accordingly.
+#
+# scope: 1-10, drives vertical position only. It is a rough sense of the size of
+#   the remit, not a rating of the job or the company.
+#
+# track: "parallel" renders the bar slightly translucent, for work that ran
+#   alongside another role rather than replacing it.
+#
+# category: the post category that ties writing to this era. A post with
+#   `categories: [Gradle]` shows up as a dot on the Gradle bar.
+#
+# discipline: must match a key in `disciplines` below. Assignment is fixed by
+#   first appearance in time -- do not reorder to taste, the colors are
+#   validated as an ordered set for colorblind separation in both themes.
+
+disciplines:
+  - key: hardware
+    label: Hardware engineering
+    light: "#2a78d6"
+    dark: "#3987e5"
+  - key: founder
+    label: Founder
+    light: "#eb6834"
+    dark: "#d95926"
+  - key: docs
+    label: Writing & advocacy
+    light: "#1baf7a"
+    dark: "#199e70"
+  - key: projects
+    label: Projects
+    light: "#eda100"
+    dark: "#c98500"
+
+roles:
+  - company: Intel
+    category: Intel
+    title: Component Design Engineer
+    start: "2008-01"
+    end: "2012-12"
+    scope: 3
+    discipline: hardware
+    location: Folsom, CA
+    note: Mixed-signal design for memory I/O on mobile SoCs.
+
+  - company: MbientLab
+    category: MbientLab
+    title: Founder
+    start: "2013-01"
+    end: present
+    scope: 9
+    discipline: founder
+    track: parallel
+    location: SF Bay Area
+    url: https://mbientlab.com
+    note: Bluetooth sensor hardware. Scaled to a team of 10 and shipped 2M+ sensors.
+
+  - company: Unit21
+    category: Unit21
+    title: Technical Writer
+    start: "2021-01"
+    end: "2023-01"
+    scope: 6
+    discipline: docs
+    location: San Francisco, CA
+    url: https://docs.unit21.ai
+    note: Sole technical writer. Built the documentation ecosystem from scratch.
+
+  - company: Gradle
+    category: Gradle
+    title: Lead Technical Writer & Advocate
+    start: "2023-01"
+    end: present
+    scope: 8
+    discipline: docs
+    # Sits just under the MbientLab bar, so the label goes below to avoid it.
+    label_side: below
+    location: Remote
+    url: https://docs.gradle.org
+    note: Sole technical writer turned advocate for a build tool serving 1M+ monthly visitors.
+
+  - company: Beacon
+    category: Beacon
+    title: Side project
+    start: "2024-01"
+    end: present
+    scope: 5
+    discipline: projects
+    track: parallel
+    location: Side project
+    url: https://beacon3d.com
+    note: Beacon3D — ongoing side project in the 3D printing space.

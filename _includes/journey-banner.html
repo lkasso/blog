@@ -1,0 +1,259 @@
+{%- comment -%}
+  Career timeline as a static SVG. Rendered entirely at build time: no client
+  JavaScript, no chart library. Adapted from the JourneyBanner component in
+  yizhang7210/professional-site-template (MIT).
+
+  x = time, y = scope of the role, color = discipline in the fixed order
+  declared in _data/journey.yml.
+
+  Posts attach to an era through their category: a post with
+  `categories: [Gradle]` plots as a dot on the Gradle bar at its publish date,
+  and the bar itself links to that era's post list. A bar with no posts is left
+  unlinked -- jekyll-archives only generates an era page once a post claims it,
+  so linking an empty era would point at a 404.
+
+  The coordinate space stays close to the rendered pixel size. A much larger
+  viewBox gets scaled down into the content column, shrinking every font with
+  it and leaving the labels unreadable.
+{%- endcomment -%}
+
+{%- assign data = site.data.journey -%}
+
+{%- assign W = 800 -%}
+{%- assign H = 420 -%}
+{%- assign PX = 56 -%}
+{%- assign INNER = 688 -%}
+{%- assign PT = 64 -%}
+{%- assign BAR_H = 20 -%}
+{%- assign MIN_W = 12 -%}
+{%- assign TIMELINE_Y = 372 -%}
+{%- assign CHART_H = 288 -%}
+
+{%- comment -%} Time domain: earliest start year through next year. {%- endcomment -%}
+{%- assign startYear = 9999 -%}
+{%- for r in data.roles -%}
+  {%- assign y = r.start | split: '-' | first | plus: 0 -%}
+  {%- if y < startYear -%}{%- assign startYear = y -%}{%- endif -%}
+{%- endfor -%}
+{%- assign endYear = 'now' | date: '%Y' | plus: 1 -%}
+{%- assign span = endYear | minus: startYear -%}
+{%- assign spanF = span | times: 1.0 -%}
+
+<div class="journey">
+  <div class="jr-scroll">
+  <svg viewBox="0 0 {{ W }} {{ H }}" preserveAspectRatio="xMidYMid meet" role="img"
+       aria-label="Career timeline from {{ startYear }} to the present, showing {{ data.roles | size }} roles positioned by scope of responsibility, with published posts marked as dots on the role they were written during.">
+
+    {%- comment -%} Scope axis. Labeled, not scaled: the numbers are ordinal, not measured. {%- endcomment -%}
+    <text class="jr-axis" x="14" y="218" text-anchor="middle" transform="rotate(-90, 14, 218)">Scope of role</text>
+    <text class="jr-tick" x="14" y="{{ PT | plus: 4 }}" text-anchor="middle">+</text>
+    <text class="jr-tick" x="14" y="{{ TIMELINE_Y | minus: 4 }}" text-anchor="middle">−</text>
+
+    {%- comment -%} Year gridlines, labeled every other year to avoid crowding. {%- endcomment -%}
+    {%- for i in (0..span) -%}
+      {%- assign gx = i | times: 1.0 | divided_by: spanF | times: INNER | plus: PX -%}
+      <line class="jr-grid" x1="{{ gx }}" y1="{{ PT }}" x2="{{ gx }}" y2="{{ TIMELINE_Y }}" />
+      {%- assign mod = i | modulo: 2 -%}
+      {%- if mod == 0 -%}
+        <text class="jr-year" x="{{ gx }}" y="{{ TIMELINE_Y | plus: 18 }}" text-anchor="middle">{{ startYear | plus: i }}</text>
+      {%- endif -%}
+    {%- endfor -%}
+
+    <line class="jr-baseline" x1="{{ PX }}" y1="{{ TIMELINE_Y }}" x2="{{ PX | plus: INNER }}" y2="{{ TIMELINE_Y }}" />
+
+    {%- comment -%} Legend, always present since there is more than one series. {%- endcomment -%}
+    {%- assign li = 0 -%}
+    {%- for d in data.disciplines -%}
+      <g transform="translate({{ li | times: 168 | plus: PX }}, {{ PT | minus: 32 }})" class="jr-legend jr-{{ d.key }}">
+        <rect width="11" height="11" rx="3" ry="3" />
+        <text x="17" y="10">{{ d.label }}</text>
+      </g>
+      {%- assign li = li | plus: 1 -%}
+    {%- endfor -%}
+
+    {%- for r in data.roles -%}
+      {%- assign sp = r.start | split: '-' -%}
+      {%- assign sy = sp[0] | plus: 0 -%}
+      {%- assign sm = sp[1] | default: '01' | plus: 0 -%}
+      {%- assign sfrac = sm | minus: 1 | times: 1.0 | divided_by: 12.0 -%}
+      {%- assign sIn = sy | minus: startYear | plus: sfrac -%}
+      {%- assign x1 = sIn | times: 1.0 | divided_by: spanF | times: INNER | plus: PX -%}
+
+      {%- if r.end == 'present' -%}
+        {%- assign x2 = PX | plus: INNER -%}
+      {%- else -%}
+        {%- assign ep = r.end | split: '-' -%}
+        {%- assign ey = ep[0] | plus: 0 -%}
+        {%- assign em = ep[1] | default: '01' | plus: 0 -%}
+        {%- assign efrac = em | minus: 1 | times: 1.0 | divided_by: 12.0 -%}
+        {%- assign eIn = ey | minus: startYear | plus: efrac -%}
+        {%- assign x2 = eIn | times: 1.0 | divided_by: spanF | times: INNER | plus: PX -%}
+      {%- endif -%}
+
+      {%- assign bw = x2 | minus: x1 -%}
+      {%- if bw < MIN_W -%}{%- assign bw = MIN_W -%}{%- endif -%}
+
+      {%- comment -%} Scope 10 sits at the top of the plot, 1 at the bottom. {%- endcomment -%}
+      {%- assign inv = 10 | minus: r.scope | times: 1.0 -%}
+      {%- assign by = inv | divided_by: 9.0 | times: CHART_H | plus: PT -%}
+      {%- assign midX = bw | divided_by: 2 | plus: x1 -%}
+      {%- assign dotY = by | plus: 10 -%}
+
+      {%- comment -%} Posts written during this era. {%- endcomment -%}
+      {%- assign eraPosts = '' | split: '' -%}
+      {%- if r.category -%}
+        {%- assign cat = r.category -%}
+        {%- assign eraPosts = site.posts | where_exp: 'p', 'p.categories contains cat' -%}
+        {%- assign eraUrl = cat | slugify | prepend: '/categories/' | append: '/' | relative_url -%}
+      {%- endif -%}
+
+      {%- comment -%} Label placement; a role can opt out via label_side in the data. {%- endcomment -%}
+      {%- if r.label_side == 'below' -%}
+        {%- assign labelY = by | plus: BAR_H | plus: 13 -%}
+      {%- else -%}
+        {%- assign labelY = by | minus: 6 -%}
+      {%- endif -%}
+
+      {%- if r.end == 'present' -%}{%- assign endLabel = 'present' -%}{%- else -%}{%- assign endLabel = r.end | split: '-' | first -%}{%- endif -%}
+      {%- assign startLabel = r.start | split: '-' | first -%}
+
+      <g class="jr-bar jr-{{ r.discipline }}{% if r.track == 'parallel' %} jr-parallel{% endif %}">
+        {%- if eraPosts.size > 0 -%}<a href="{{ eraUrl }}">{%- endif -%}
+        <title>{{ r.company }} — {{ r.title }} ({{ startLabel }}–{{ endLabel }}){% if eraPosts.size > 0 %}. {{ eraPosts.size }} post{% if eraPosts.size != 1 %}s{% endif %}{% endif %}</title>
+        <rect x="{{ x1 }}" y="{{ by }}" width="{{ bw }}" height="{{ BAR_H }}" rx="4" ry="4" />
+        <text class="jr-label" x="{{ midX }}" y="{{ labelY }}" text-anchor="middle">{{ r.company }}</text>
+        {%- if eraPosts.size > 0 -%}</a>{%- endif -%}
+
+        {%- comment -%}
+          One dot per post, at its publish date. Painted after the bar so it
+          sits on top, and clamped inside the bar so a post dated outside its
+          era still lands on the bar it belongs to.
+        {%- endcomment -%}
+        {%- assign lo = x1 | plus: 9 -%}
+        {%- assign hi = x1 | plus: bw | minus: 9 -%}
+        {%- for p in eraPosts -%}
+          {%- assign pYear = p.date | date: '%Y' | plus: 0 -%}
+          {%- assign pDoy = p.date | date: '%j' | plus: 0 -%}
+          {%- assign pFrac = pDoy | minus: 1 | times: 1.0 | divided_by: 365.0 -%}
+          {%- assign pIn = pYear | minus: startYear | plus: pFrac -%}
+          {%- assign pxRaw = pIn | times: 1.0 | divided_by: spanF | times: INNER | plus: PX -%}
+          {%- if hi < lo -%}
+            {%- assign px = midX -%}
+          {%- elsif pxRaw < lo -%}
+            {%- assign px = lo -%}
+          {%- elsif pxRaw > hi -%}
+            {%- assign px = hi -%}
+          {%- else -%}
+            {%- assign px = pxRaw -%}
+          {%- endif -%}
+          <a class="jr-dot" href="{{ p.url | relative_url }}">
+            <title>{{ p.title }} — {{ p.date | date: '%b %-d, %Y' }}</title>
+            <circle cx="{{ px }}" cy="{{ dotY }}" r="5" />
+          </a>
+        {%- endfor -%}
+      </g>
+    {%- endfor -%}
+  </svg>
+  </div>
+
+</div>
+
+<style>
+  /* On a narrow screen the chart scrolls inside its own box rather than
+     scaling down until the labels are unreadable. The page never scrolls
+     sideways. */
+  .journey .jr-scroll {
+    overflow-x: auto;
+  }
+
+  .journey svg {
+    width: 100%;
+    min-width: 560px;
+    height: auto;
+    display: block;
+    margin: 0 auto 0.5rem;
+  }
+
+  /* Chrome and ink read from Chirpy's variables so the chart follows the theme
+     toggle instead of staying locked to one mode. */
+  .journey .jr-grid {
+    stroke: var(--main-border-color);
+    stroke-width: 1;
+    opacity: 0.5;
+  }
+
+  .journey .jr-baseline {
+    stroke: var(--main-border-color);
+    stroke-width: 1.5;
+  }
+
+  .journey .jr-axis,
+  .journey .jr-tick,
+  .journey .jr-year,
+  .journey .jr-legend text {
+    fill: var(--text-muted-color);
+  }
+
+  .journey .jr-axis { font-size: 11px; letter-spacing: 0.04em; }
+  .journey .jr-tick { font-size: 13px; }
+  .journey .jr-year { font-size: 11px; }
+  .journey .jr-legend text { font-size: 12px; }
+
+  /* Labels wear text ink, never the series color. */
+  .journey .jr-label {
+    fill: var(--text-color);
+    font-size: 13px;
+    font-weight: 600;
+    pointer-events: none;
+  }
+
+  /* A 2px surface-colored ring keeps bars apart where they overlap in time. */
+  .journey .jr-bar rect {
+    stroke: var(--main-bg);
+    stroke-width: 2;
+    transition: filter 0.15s ease, opacity 0.15s ease;
+  }
+
+  .journey .jr-parallel rect { opacity: 0.85; }
+
+  .journey .jr-bar:hover rect {
+    filter: brightness(1.08);
+    opacity: 1;
+  }
+
+  /* Post markers. Surface fill with an ink ring so they read on any bar color
+     in either theme. */
+  .journey .jr-dot circle {
+    fill: var(--main-bg);
+    stroke: var(--text-color);
+    stroke-width: 1.6;
+    cursor: pointer;
+    transition: r 0.12s ease;
+  }
+
+  .journey .jr-dot:hover circle {
+    r: 7;
+  }
+
+  .journey a { cursor: pointer; }
+
+  /* Series colors are generated from _data/journey.yml, so that file is the
+     single source of truth -- adding a discipline there colors its bars and
+     its legend swatch with no stylesheet edit.
+
+     These are the leading slots of a colorblind-safe ordered set, stepped
+     separately for each surface rather than inverted. Several sit below 3:1
+     contrast on white, which is why every bar carries a visible text label:
+     color is never the only channel carrying identity here.
+
+     Both dark selectors are needed -- Chirpy goes dark either by explicit
+     toggle or, with no toggle set, by OS preference. */
+{% for d in data.disciplines %}  .journey .jr-{{ d.key }} rect { fill: {{ d.light }}; }
+{% endfor %}
+{% for d in data.disciplines %}  html[data-mode='dark'] .journey .jr-{{ d.key }} rect { fill: {{ d.dark }}; }
+{% endfor %}
+  @media (prefers-color-scheme: dark) {
+{% for d in data.disciplines %}    html:not([data-mode]) .journey .jr-{{ d.key }} rect { fill: {{ d.dark }}; }
+{% endfor %}  }
+
+</style>
