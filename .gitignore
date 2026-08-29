@@ -10,6 +10,8 @@ vendor/
 
 # Local-only agent instructions
 CLAUDE.md
+.claude/
+AGENTS.md
 
 # OS cruft
 .DS_Store
