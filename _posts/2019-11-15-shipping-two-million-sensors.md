@@ -90,7 +90,7 @@ that measures motion, people put it on whatever they are curious about.
 - Somebody wrote a paper called [*Fitbit for Chickens?*](https://dl.acm.org/doi/pdf/10.1145/3394486.3403385),
   about mining time series from poultry to make farms more productive.
 - Other people published on toothbrushing technique, cricket bowling spin rates,
-  and the behaviour of granular material moving through pneumatic pipes.
+  and the behavior of granular material moving through pneumatic pipes.
 
 None of that was on the roadmap. None of it was on any roadmap.
 

@@ -81,9 +81,9 @@ expected the job to include.
 
 ## People
 
-- [Skip Lindsay](https://www.linkedin.com/in/william-c-lindsay-07a5a6a3/) hired
+- [Skip](https://www.linkedin.com/in/william-c-lindsay-07a5a6a3/) hired
   me out of that internship and set the bar for every manager since.
-- [Josh Pfrimmer](https://www.linkedin.com/in/josh-pfrimmer-50336b75/) was one of
+- [Josh](https://www.linkedin.com/in/josh-pfrimmer-50336b75/) was one of
   the best mentors I have had, and the person who got me into rock climbing.
-- [Keerthi Patlolla](https://www.linkedin.com/in/keerthi-r-patlolla-7a070811/)
+- [Keerthi](https://www.linkedin.com/in/keerthi-r-patlolla-7a070811/)
   was a wonderful colleague and made the day-to-day better.

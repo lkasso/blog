@@ -50,13 +50,13 @@ roles:
     category: MbientLab
     title: Founder
     start: "2013-01"
-    end: present
+    end: "2026-09"
     scope: 9
     discipline: founder
     track: parallel
     location: SF Bay Area
     url: https://mbientlab.com
-    note: Bluetooth sensor hardware. Scaled to a team of 10 and shipped 2M+ sensors.
+    note: Bluetooth sensor hardware. Scaled to a team of 10 and shipped 2.5M+ sensors.
 
   - company: Unit21
     category: Unit21
