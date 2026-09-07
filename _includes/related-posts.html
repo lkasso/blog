@@ -1,0 +1,19 @@
+{%- comment -%}
+  Intentionally empty. This shadows the Chirpy gem's _includes/related-posts.html
+  so the "Further Reading" block never renders at the bottom of a post.
+
+  Why: categories on this site are era labels, not a topic taxonomy, and there
+  are no tags at all. Chirpy scores related posts by shared tags and categories,
+  so every post in an era would recommend every other post in that era purely
+  because they happened at the same job. That is not a reading recommendation,
+  and the timeline on the home page already does the "more from this era" job
+  properly, with dates attached.
+
+  Done as an empty include rather than by forking _layouts/post.html, so there
+  is no layout to re-reconcile on a theme upgrade. The gem's post.html still
+  calls this include; it just gets nothing back.
+
+  To restore the theme behavior, delete this file.
+
+  A Liquid comment, not an HTML one, so nothing at all reaches the page.
+{%- endcomment -%}

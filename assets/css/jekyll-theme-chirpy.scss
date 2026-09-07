@@ -29,3 +29,127 @@
 #topbar-title {
   margin-right: auto;
 }
+
+/*
+ * Hide the top bar entirely, on every screen size.
+ *
+ * Hidden rather than removed, for the same reason the search UI is: the
+ * theme's commons.min.js binds listeners to #search-trigger and #sidebar-trigger
+ * with no null checks, so shadowing topbar.html with an empty file would throw
+ * and take other behavior down with it. display:none keeps the nodes in the DOM
+ * for the JS while painting nothing, and keeps them out of the accessibility
+ * tree. This also removes the breadcrumb, which lived inside the topbar, so
+ * there is no separate breadcrumb override.
+ *
+ * KNOWN COST, accepted deliberately: #sidebar-trigger is the hamburger, and on
+ * screens narrow enough for Chirpy to put the sidebar off-canvas it is the only
+ * way to open it. Hiding the topbar on those screens means a reader who lands
+ * on a post from a link has no in-page route to the home page or anywhere else
+ * — the sidebar's site title is the usual way home, and it is unreachable. On
+ * desktop nothing is lost, since the sidebar is always on screen there.
+ */
+#topbar-wrapper {
+  display: none;
+}
+
+/*
+ * Hide the category line at the foot of a post.
+ *
+ * Categories here are era labels, not topics, and the era is already stated in
+ * the post's own title and in the URL. A lone "Intel" folder link under the
+ * text reads like a taxonomy this site does not have.
+ *
+ * Done in CSS rather than by forking the gem's _layouts/post.html, which is
+ * where this markup lives: a fork means re-reconciling that layout on every
+ * theme upgrade, and _layouts/home.html is already carrying that cost. The
+ * selector is the direct child, which uniquely identifies the category block —
+ * the tags block that follows it emits nothing, since there are no tags.
+ *
+ * display:none, not visibility/opacity, so it leaves the accessibility tree
+ * too rather than being read out invisibly.
+ */
+.post-tail-wrapper > .post-meta {
+  display: none;
+}
+
+/* Social links under the home page intro. The separators are decorative and
+   carry aria-hidden, so a screen reader reads a plain list of links. */
+.home-socials {
+  font-size: 0.9rem;
+
+  span {
+    color: var(--text-muted-color);
+    margin: 0 0.35rem;
+    user-select: none;
+  }
+}
+
+/*
+ * Era post section cards.
+ *
+ * Each `###` under `## The Work` sits in its own card, so a reader can see
+ * where one role or subject stops and the next begins. Chirpy's post surface 
+ * is already pure white, so here the card is a step *darker* than the page 
+ * in light mode and a step *lighter* than #1b1b1e in dark.
+ *
+ * Scoping is automatic. `.era` appears only in era posts, because it is written
+ * by hand in the post markdown as
+ *
+ *   <div class="era" markdown="1">
+ *
+ *   ### Heading (2014 - 2016)
+ *   ...
+ *
+ *   </div>
+ *
+ * `markdown="1"` is required, and so are the blank lines after the opening tag
+ * and before the closing one. Without them kramdown treats the contents as raw
+ * HTML and every heading, list and link inside stops rendering.
+ */
+.era {
+  background: #f8f9fa;
+  border: 1px solid #edeff1;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+
+  /* The heading leads the card, so its own top margin would push it off the
+     padding and leave a gap. */
+  > h3:first-child {
+    margin-top: 0;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* On a narrow screen the 1.5rem inset eats too much of the column. */
+@media (max-width: 576px) {
+  .era {
+    padding: 1rem;
+  }
+}
+
+/*
+ * Both dark selectors are needed. Chirpy goes dark either by explicit toggle,
+ * which stamps data-mode="dark", or by OS preference with no attribute set at
+ * all. The media query is guarded so it cannot override an explicit light
+ * choice.
+ */
+@mixin era-dark {
+  .era {
+    background: #26262a;
+    border-color: #33333a;
+  }
+}
+
+html[data-mode='dark'] {
+  @include era-dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-mode]) {
+    @include era-dark;
+  }
+}

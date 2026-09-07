@@ -20,6 +20,8 @@ I have Skip Lindsay to thank for that, a damn good Principal Engineer, my recrui
 
 ## The Work
 
+<div class="era" markdown="1">
+
 ### Post Silicon Validation Engineer (2009 – 2011)
 
 x86 microarchitecture · RTL emulation · FPGAs · Perl
@@ -31,6 +33,10 @@ Most of it came down to a loop.
 A failure happens in silicon, and we had a backdoor that captured the state of the machine right before it went wrong.
 You replay that state on emulators and FPGAs, and then you find the bug by walking the system forward in slow time.
 And you cross your fingers that you know the system well enough, and are lucky enough to catch the failure in the act, to fix it at all.
+
+</div>
+
+<div class="era" markdown="1">
 
 ### Component Design Engineer (2011 – 2012)
 
@@ -48,6 +54,8 @@ Engineers can be notoriously pig-headed about new tooling, so I wrote a course o
 If you would not do the course and show some willingness to learn the thing, your credentials stopped working.
 Yes, it was a bit passive-aggressive.
 Git was still unfamiliar to most of the team back then, and I hope they look back on it as a good memory, and a great skill to have.
+
+</div>
 
 ## Exit
 

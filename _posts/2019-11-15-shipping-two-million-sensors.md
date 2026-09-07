@@ -24,6 +24,8 @@ Stephen, Yu and Eric (ex-Intel colleagues) came later and became cofounders in e
 
 ## The Work
 
+<div class="era" markdown="1">
+
 ### MetaWear, and the Kickstarter years (2014 – 2016)
 
 Bluetooth Low Energy · Apple · Kickstarter · Hardware
@@ -56,6 +58,10 @@ The MetaWear HR/PPG board funded, but not by enough to actually manufacture it, 
 The MetaWear Mini, the size of a dime and meant to go into clothing, was a partnership where the partner would not fund their half.
 Both were the right idea.
 Neither shipped.
+
+</div>
+
+<div class="era" markdown="1">
 
 ### MetaMotion (2016 – 2021)
 
@@ -94,6 +100,10 @@ that measures motion, people put it on whatever they are curious about.
 
 None of that was on the roadmap. None of it was on any roadmap.
 
+</div>
+
+<div class="era" markdown="1">
+
 ### On the open source software (2014 – 2021)
 
 Objective-C · C++ · Java · Swift · Python
@@ -108,6 +118,10 @@ The Python and Javascript API we wrote collectively.
 
 Every time an API shipped or changed, we put out updated Android and iOS apps to go with it.
 You can find both on the App store and the Play store today (well as of this writing anyways).
+
+</div>
+
+<div class="era" markdown="1">
 
 ### On the contract manufacturing (2014 – 2021)
 
@@ -144,6 +158,10 @@ In the lifetime of the company, we manufactured and sold **more than two and a h
 Every single one of them passed through our own warehouse, where one of us
 tested it, boxed it, and printed the label. Never a third party.
 
+</div>
+
+<div class="era" markdown="1">
+
 ### On the team and the offices (2014 – 2021)
 
 San Francisco · San Jose · Eight people
@@ -157,6 +175,8 @@ That was the whole company. Two and a half million units shipped, five language
 SDKs, thirteen board models, Kickstarters, a federal research grant, Fortune 500
 customers, and prototypes that helped other startups raise up to $50M. Eight
 people.
+
+</div>
 
 ## Exit
 

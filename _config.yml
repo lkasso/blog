@@ -5,7 +5,7 @@ lang: en
 timezone: America/Los_Angeles
 
 title: Laura Kassovic
-tagline: OSS + enterprise systems, Gradle internals, and AI workflows that actually work
+tagline: Electrical engineer turned writer and advocate.
 description: >-
   Writing about Gradle, build systems, open source in enterprise, developer experience,
   and AI-assisted software workflows.
@@ -23,12 +23,14 @@ social:
     - https://github.com/lkasso
     - https://x.com/oss_enterprise
     - https://bsky.app/profile/oss_enterprise.bsky.social
+    - https://www.linkedin.com/in/laurakassovic/
 
 # Theme
 theme: jekyll-theme-chirpy
 
-# Avatar (add file later)
-avatar: /assets/img/avatar.png
+# Avatar. JPEG, not PNG: it is a photograph, and the PNG of the same 512x512
+# crop was 318KB against 35KB here, on an asset that loads on every page.
+avatar: /assets/img/avatar.jpg
 
 # Social preview image (optional)
 social_preview_image: /assets/img/social-preview.png

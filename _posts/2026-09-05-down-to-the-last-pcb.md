@@ -10,6 +10,8 @@ It is closing the way most small companies actually end, which is quietly, after
 
 ## The Work
 
+<div class="era" markdown="1">
+
 ### Everyone getting on with it (2018 – 2021)
 
 The team did not scatter because of Covid.
@@ -28,7 +30,11 @@ We had all understood by then that MbientLab was never going to be a unicorn wit
 
 Then Covid landed on what was left.
 
-### Running it like a startup, with no one (2021 – 2025)
+</div>
+
+<div class="era" markdown="1">
+
+### Running it like a startup, but not (2021 – 2025)
 
 MetaMotion RL · MetaMotion S · e-commerce · side-hustle
 
@@ -59,6 +65,10 @@ MbientLab took the back seat.
 I could afford to let it, because it was self sustaining by then, and because anything that caught fire, Sophie put out.
 They call these things "side-hustles" now.
 
+</div>
+
+<div class="era" markdown="1">
+
 ### Ryan, and one last good year (2021 – 2022)
 
 Swift · iOS
@@ -74,6 +84,10 @@ And then I started at Gradle and there was simply no time.
 I was busy.
 It sat there for years.
 
+</div>
+
+<div class="era" markdown="1">
+
 ### Finishing the APIs (2025 – 2026)
 
 Swift 6 · Kotlin · AI · vibe-coding
@@ -86,6 +100,8 @@ We were getting ready to sell out the inventory and shut the doors.
 I wrote them anyway.
 
 The honest reason is that it had bothered me for four years that the SDKs were not what they should be, and for the first time I had a way (and time) to fix it, and I did not want the last version of this thing to be the unfinished one.
+
+</div>
 
 ## Exit
 
@@ -106,7 +122,7 @@ Thirteen years. Two and a half million sensors. End of an era.
 
 **I should have shut the doors earlier.** Ryan gave me a burst of momentum and excitement, but I should have killed this long ago.
 
-**It takes a lot not to see this as a failure.** Therapy? Maybe. Thirteen years, I guess i know what it feels like when your kids flunks out of college. 
+**It takes a lot not to see this as a failure.** Therapy? Maybe. Thirteen years, and I guess I know what it feels like when your kid flunks out of college.
 
 ## People
 

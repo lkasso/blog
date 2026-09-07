@@ -1,0 +1,45 @@
+# Sidebar contact icons.
+#
+# This file SHADOWS the copy inside the jekyll-theme-chirpy gem. Jekyll's data
+# lookup prefers the local one, so the whole list lives here now, not just the
+# additions -- anything omitted below stops rendering.
+#
+# Why a local copy at all: Chirpy ships github, twitter, email and rss only.
+# Bluesky and LinkedIn are not in that list, and a custom entry needs an
+# explicit `url:`, which the gem's defaults have no way to express.
+#
+# How the gem's _includes/sidebar.html resolves each entry:
+#   - `github` and `twitter` build their URL from site.<type>.username
+#   - `email` builds a mailto from site.social.email
+#   - `rss` points at the generated feed
+#   - anything else falls through to this file's `url:` field
+#
+# `noblank: true` means open in the same tab rather than a new one.
+#
+# NOTE: the icon class names below follow Font Awesome 6 as used by Chirpy
+# 7.0.1. If an icon renders as an empty box, check the gem's own contact.yml
+# for the exact class strings it expects:
+#   bundle info --path jekyll-theme-chirpy
+
+- type: github
+  icon: "fab fa-github"
+
+- type: twitter
+  icon: "fa-brands fa-x-twitter"
+  url: "https://x.com/oss_enterprise"
+
+- type: bluesky
+  icon: "fa-brands fa-bluesky"
+  url: "https://bsky.app/profile/oss_enterprise.bsky.social"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://www.linkedin.com/in/laurakassovic/"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true
+
+- type: rss
+  icon: "fas fa-rss"
+  noblank: true
