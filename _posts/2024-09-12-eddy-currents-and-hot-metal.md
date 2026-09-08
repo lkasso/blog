@@ -1,6 +1,6 @@
 ---
 title: "Eddy currents and hot metal"
-date: 2024-09-12 09:00:00 -0700
+date: 2024-09-12
 categories: [Beacon]
 ---
 

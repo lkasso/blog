@@ -1,6 +1,6 @@
 ---
 title: "Shipping two million sensors"
-date: 2019-11-15 09:00:00 -0800
+date: 2019-11-15
 categories: [MbientLab]
 ---
 

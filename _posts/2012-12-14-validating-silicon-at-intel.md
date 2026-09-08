@@ -1,6 +1,6 @@
 ---
 title: "Validating and designing silicon at Intel"
-date: 2012-12-14 09:00:00 -0800
+date: 2012-12-14
 categories: [Intel]
 ---
 
