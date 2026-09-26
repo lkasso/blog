@@ -54,7 +54,7 @@ Over the following year I pulled it apart and put it back together as one thing,
 The API reference was generated from our OpenAPI spec rather than hand-written, which is the only way one person keeps up with an engineering team.
 I owned the changelog and the release notes too.
 
-By the time I left, it was **531 documentation pages, 292 API reference pages and 34 changelog entries**.
+By the time I left, it was 531 documentation pages, 292 API reference pages and 34 changelog entries.
 Engineers wrote none of it.
 All of it came through me.
 
@@ -99,18 +99,16 @@ That was the first time any of my work looked like developer advocacy rather tha
 I did not expect that.
 It is a genuinely fascinating subject, and getting paid to understand it properly was the thing I enjoyed most about being there.
 
-**Next time, I want founders who have done it before.**
+**Next time I work at a startup, I want founders with more experience.**
 That is the single thing I would change.
-Not the product, not the market, not the work.
+The product, the market and the work were all fine.
 
-**It was a hot mess.**
-The C-suite was too young and too inexperienced for what the company was trying to be, and I think it could have gone a great deal further with better management.
-That is where the two stars come from.
-The people around me were not the problem.
+**I enjoyed this tech writing thing.**
+Unit21 was a chance to try technical writing and find out whether it was a long-term thing or a one-time thing. It turned out to be something I really liked.
 
 ## People
 
-- [Clarence](https://www.linkedin.com/in/cchio/) is the reason I took the job.
-  I would work for him again.
-- [Karen](https://www.linkedin.com/in/karensitu/) hired me and bought ReadMe before I arrived, which turned out to be the right call.
-- [Andrew](https://www.linkedin.com/in/andrew-a-2a58387b/) and [Sam](https://www.linkedin.com/in/samokeefe/), who I reported to after Karen.
+- [Clarence](https://www.linkedin.com/in/cchio/) is the reason I took the job. I would work for him again in a heartbeat.
+- [Karen](https://www.linkedin.com/in/karensitu/) hired me and bought ReadMe before I arrived, which turned out to be the right call. Karen has an inherent skill for finding talent and knowing where the next big thing is going to be.
+- [Andrew](https://www.linkedin.com/in/andrew-a-2a58387b/), who I reported to after Karen. The most down-to-earth fella I ever worked for.
+- [Sam](https://www.linkedin.com/in/samokeefe/), who I reported to after Andrew. Sam embodies everything I respect and admire in a woman, a leader, and an entrepreneur.

@@ -6,7 +6,7 @@ categories: [MbientLab]
 
 MbientLab is closing.
 Not dramatically, and not because anything went wrong.
-It is closing the way most small companies actually end, which is quietly, after everyone involved has slowly gotten on with their lives and no one got rich.
+It is closing the way most small companies end, quietly, after everyone involved has slowly gotten on with their lives and no one got rich.
 
 ## The Work
 
@@ -115,8 +115,6 @@ The honest reason is that it had bothered me for four years that the SDKs were n
 
 The exact date is somewhere between now and the first of December.
 When I finish writing this, I am going to get up from my desk and solder some of the last batch of MetaMotion S boards.
-
-Thirteen years. Two and a half million sensors. End of an era.
 
 ## Takeaways
 

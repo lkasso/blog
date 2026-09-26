@@ -114,3 +114,10 @@ exclude:
   - vendor
   - .bundle
   - .sass-cache
+  # Local-only agent instructions. Gitignored, so CI never sees them, but
+  # Jekyll copies unknown root files straight through to _site the way it does
+  # CNAME, so without this they land in the build output and would publish the
+  # moment anyone un-gitignored them.
+  - CLAUDE.md
+  - AGENTS.md
+  - .claude

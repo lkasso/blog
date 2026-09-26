@@ -31,23 +31,21 @@ Stephen, Yu and Eric (ex-Intel colleagues) came later and became cofounders in e
 Bluetooth Low Energy · Apple · Kickstarter · Hardware
 
 The first MetaWear went up on Kickstarter in April 2014 asking for $8,000.
-It finished at **$115,067 from 1,887 backers**, a little over fourteen times the goal.
+It finished at $115,067 from 1,887 backers, a little over fourteen times the goal.
 Our first customers were those backers, and a good number of them were the friends and acquaintances I had been making since 2012.
 
 Four more campaigns followed over the next two years:
 
-- **MetaWear RG and RPro**, April 2015. $50,622 from 590 backers.
-- **MetaWear C and CPro**, August 2015. $85,977 from 1,287 backers.
-- **MetaWear CEnv and CDetect**, January 2016. $53,432 from 597 backers.
-- **MetaWear HR/GSR**, June 2016. $22,485 from 222 backers.
+- MetaWear RG and RPro, April 2015. $50,622 from 590 backers.
+- MetaWear C and CPro, August 2015. $85,977 from 1,287 backers.
+- MetaWear CEnv and CDetect, January 2016. $53,432 from 597 backers.
+- MetaWear HR/GSR, June 2016. $22,485 from 222 backers.
 
-Five funded campaigns, **$327,583 from 4,583 backers**.
-GigaOM called it a $30 Bluetooth module for wearables.
-Make: and Fast Company picked it up too.
-It was exciting.
+Five funded campaigns, $327,583 from 4,583 backers.
+GigaOM called it a $30 Bluetooth module for wearables, and Make: and Fast Company picked it up too, which was exciting.
 
 Almost none of the product roadmap was mine.
-It was dictated by what people asked for like more sensors, different form factors, coin batteries.
+It was dictated by what people asked for: more sensors, different form factors, coin batteries.
 The MetaWear RG added a gyro.
 The MetaWear Env added humidity and RGB color.
 The MetaWear Detect added proximity.
@@ -72,11 +70,11 @@ The MetaMotion R and MetaMotion C were supersets of the MetaWear R and MetaWear 
 MetaMotion RL and MetaMotion S came later.
 By the end we had shipped thirteen distinct board models across nine generations.
 
-In June 2016 we won an **NSF SBIR Phase I grant, $225,000**, to build cloud-based trend analysis on sensor data. We didn't get a Phase II.
+In June 2016 we won an NSF SBIR Phase I grant, $225,000, to build cloud-based trend analysis on sensor data. We didn't get a Phase II.
 It is the only outside money the company ever took that wasn't a customer paying us for something.
 
 The market we did not plan for turned out to be research.
-Our boards ended up in labs, and then in papers: **more than 160 biomedical publications in Europe PMC alone** cite MbientLab hardware, on stroke rehabilitation, gait analysis, fall detection, wearable textiles.
+Our boards ended up in labs, and then in papers: more than 160 biomedical publications in Europe PMC alone cite MbientLab hardware, on stroke rehabilitation, gait analysis, fall detection, wearable textiles.
 Robert H. Grubbs, a Nobel laureate in chemistry, used our sensors in his
 research.
 One 2020 *Sensors* paper benchmarks seven IMUs head to head and ours is one of them, which is a strange and gratifying thing to read about your own board.
@@ -98,7 +96,7 @@ that measures motion, people put it on whatever they are curious about.
 - Other people published on toothbrushing technique, cricket bowling spin rates,
   and the behavior of granular material moving through pneumatic pipes.
 
-None of that was on the roadmap. None of it was on any roadmap.
+None of that was on our roadmap, or on anyone's.
 
 </div>
 
@@ -147,14 +145,14 @@ Our defect rate stayed below industry norms for the entire life of the company.
 Certification was easier than people expect, but only because we knew every
 piece of the product intimately, and because a small battery and a small antenna
 is an easy thing to certify.
-We used a lab in the Bay Area, spent real time building the test setup and fixtures, and then the testing itself took a few days and about **$10,000**.
+We used a lab in the Bay Area, spent real time building the test setup and fixtures, and then the testing itself took a few days and about $10,000.
 
 The part I could not have done is the part Sophie did.
 She forecast demand so accurately that in ten years we hit zero stock exactly once.
 She worked out how to classify goods to minimize tariffs and how to route shipments to minimize freight, and she was doing this through tariff regimes and supply chain disruptions that long predate the ones people talk about now.
 An absolute master of the craft.
 
-In the lifetime of the company, we manufactured and sold **more than two and a half million sensors** worldwide.
+In the lifetime of the company, we manufactured and sold more than two and a half million sensors worldwide.
 Every single one of them passed through our own warehouse, where one of us
 tested it, boxed it, and printed the label. Never a third party.
 

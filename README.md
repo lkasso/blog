@@ -47,4 +47,5 @@ Edit `_config.yml` for:
 - avatar image
 - analytics
 
-Replace `assets/img/avatar.png` and `assets/img/social-preview.png` later with real images.
+`assets/img/social-preview.png` is still the placeholder. It is the image shown
+when a link to the site is shared, so it wants a real 1200x630 graphic.

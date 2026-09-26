@@ -59,7 +59,7 @@ socialized by the regulars until they knew the norms. Then in late 1993
 commercial providers opened the gates, the flood stopped being seasonal, and it
 became known as the September that never ended.
 
-The obvious reading is that newcomers ruin things. That is not actually what the
+The obvious reading is that newcomers ruin things. That is not what the
 research says, and the more interesting version is less flattering to me.
 
 In 2016 a group of researchers studied a Reddit community that took an enormous
@@ -97,9 +97,6 @@ feeling like the operating environment.
 
 ## Open source was never a promise of free labor
 
-The open source part deserves its own paragraph, because it is the most
-misunderstood.
-
 Publishing your SDKs does not mean you have agreed to work for free, forever,
 for anyone who downloads them. Maintainers know this. Tidelift's 2024 survey of
 open source maintainers found 60% are unpaid hobbyists, 48% feel underappreciated
@@ -111,15 +108,14 @@ One maintainer quoted in their report put it better than I can:
 > Most users, even ones who require fixes, are not willing to roll up their
 > sleeves to help. They just expect someone else to fix it for free.
 
-That is the whole thing. People wanted the benefits of open source without any
-of its obligations, and were often annoyed to learn there were obligations.
+People wanted the benefits of open source without any of its obligations, and
+were often annoyed to learn there were obligations.
 
 ## The trust loop
 
-Here is the part I find genuinely uncomfortable, because it implicates me.
-
-Bad behavior makes a company defensive. Every abused return policy tightens the
-return policy. Every chargeback adds a verification step. Every ticket demanding
+The uncomfortable part, and the part that implicates me, is that bad behavior
+makes a company defensive. Every abused return policy tightens the return
+policy. Every chargeback adds a verification step. Every ticket demanding
 an immediate answer to a question already answered in the docs pushes you toward
 the canned reply, then toward the macro, then toward the bot. Warmth is
 expensive, and hostility raises the price.
