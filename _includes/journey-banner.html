@@ -42,10 +42,10 @@
 <div class="journey">
   <div class="jr-scroll">
   <svg viewBox="0 0 {{ W }} {{ H }}" preserveAspectRatio="xMidYMid meet" role="img"
-       aria-label="Career timeline from {{ startYear }} to the present, showing {{ data.roles | size }} roles positioned by scope of responsibility, with published posts marked as dots on the role they were written during.">
+       aria-label="Career timeline from {{ startYear }} to the present, showing {{ data.roles | size }} roles positioned by scope of responsibility, each with a star rating out of five, and with published posts marked as dots on the role they were written during.">
 
     {%- comment -%} Scope axis. Labeled, not scaled: the numbers are ordinal, not measured. {%- endcomment -%}
-    <text class="jr-axis" x="14" y="218" text-anchor="middle" transform="rotate(-90, 14, 218)">Scope of role</text>
+    <text class="jr-axis" x="14" y="218" text-anchor="middle" transform="rotate(-90, 14, 218)">Scope & Responsibilities</text>
     <text class="jr-tick" x="14" y="{{ PT | plus: 4 }}" text-anchor="middle">+</text>
     <text class="jr-tick" x="14" y="{{ TIMELINE_Y | minus: 4 }}" text-anchor="middle">−</text>
 
@@ -117,11 +117,58 @@
       {%- if r.end == 'present' -%}{%- assign endLabel = 'present' -%}{%- else -%}{%- assign endLabel = r.end | split: '-' | first -%}{%- endif -%}
       {%- assign startLabel = r.start | split: '-' | first -%}
 
+      {%- comment -%}
+        Optional star rating at half-star resolution, e.g. `rating: 4.5`.
+        A role with no `rating` renders no stars at all, so the field can be
+        added one era at a time without leaving gaps in the chart. The half is
+        drawn as ½ rather than a half-filled glyph because there is no Unicode
+        half star, and an SVG clip-path version would not inherit the text
+        color in both themes.
+      {%- endcomment -%}
+      {%- capture stars -%}
+        {%- if r.rating -%}
+          {%- assign full = r.rating | floor -%}
+          {%- assign rem = r.rating | minus: full -%}
+          {%- if full > 0 -%}{%- for s in (1..full) -%}★{%- endfor -%}{%- endif -%}
+          {%- if rem > 0 -%}½{%- endif -%}
+        {%- endif -%}
+      {%- endcapture -%}
+      {%- assign stars = stars | strip -%}
+
       <g class="jr-bar jr-{{ r.discipline }}{% if r.track == 'parallel' %} jr-parallel{% endif %}">
         {%- if eraPosts.size > 0 -%}<a href="{{ eraUrl }}">{%- endif -%}
-        <title>{{ r.company }} — {{ r.title }} ({{ startLabel }}–{{ endLabel }}){% if eraPosts.size > 0 %}. {{ eraPosts.size }} post{% if eraPosts.size != 1 %}s{% endif %}{% endif %}</title>
+        <title>{{ r.company }} — {{ r.title }} ({{ startLabel }}–{{ endLabel }}){% if r.rating %}. Rated {{ r.rating }} out of 5{% endif %}{% if eraPosts.size > 0 %}. {{ eraPosts.size }} post{% if eraPosts.size != 1 %}s{% endif %}{% endif %}</title>
         <rect x="{{ x1 }}" y="{{ by }}" width="{{ bw }}" height="{{ BAR_H }}" rx="4" ry="4" />
-        <text class="jr-label" x="{{ midX }}" y="{{ labelY }}" text-anchor="middle">{{ r.company }}</text>
+
+        {%- comment -%}
+          Optional company mark, as a chip sitting just left of the bar rather
+          than on it: 16px square, 4px clear of the bar's start, vertically
+          centered against the 20px bar. Outside the bar it never competes with
+          the post dots, and it does not eat the width of a short bar.
+
+          The white rect underneath is backing for transparent marks; an opaque
+          icon tile covers it. White in both themes on purpose, since most marks
+          are dark-on-transparent and recoloring a trademark is not ours to do.
+
+          Send square icon marks, not wordmarks -- there are only 16px here.
+          This is inline SVG inside the page, so <image href> resolves a normal
+          URL; no base64 needed. A role with no `logo` renders nothing.
+
+          The leftmost bar starts at PX (56), so its chip lands at 36-52, clear
+          of the scope axis at x=14. Chips on later bars can pass over an
+          earlier bar that ends nearby, but those are always on a different
+          scope row, so they separate vertically.
+        {%- endcomment -%}
+        {%- if r.logo -%}
+        {%- assign logoX = x1 | minus: 20 -%}
+        <g class="jr-logo">
+          <rect x="{{ logoX }}" y="{{ by | plus: 2 }}" width="16" height="16" rx="3" ry="3" />
+          <image href="{{ r.logo | relative_url }}" x="{{ logoX }}" y="{{ by | plus: 2 }}"
+                 width="16" height="16" preserveAspectRatio="xMidYMid slice" />
+        </g>
+        {%- endif -%}
+
+        <text class="jr-label" x="{{ midX }}" y="{{ labelY }}" text-anchor="middle">{{ r.company }}{%- if stars != '' -%}<tspan class="jr-stars" dx="5">{{ stars }}</tspan>{%- endif -%}</text>
         {%- if eraPosts.size > 0 -%}</a>{%- endif -%}
 
         {%- comment -%}
@@ -199,11 +246,68 @@
   .journey .jr-year { font-size: 11px; }
   .journey .jr-legend text { font-size: 12px; }
 
-  /* Labels wear text ink, never the series color. */
+  /* Labels wear text ink, never the series color.
+
+     The surface-colored halo is what lets every label sit above its own bar.
+     Scope rows are 32px apart and a 13px label needs about 9px above the
+     baseline, so a label on a bar directly beneath another one clips the bar
+     above it by a few pixels -- Gradle at scope 8 under MbientLab at scope 9
+     is the live case. Painting a 3px stroke of the page surface behind the
+     glyphs (paint-order: stroke draws it first, so it does not thicken the
+     letterforms) knocks a clean gap out of whatever is behind, which is the
+     usual cartographic trick for labels over busy ground. Without it, the
+     alternative is pushing labels below their bars, which is what
+     `label_side: below` in _data/journey.yml is still there to do if a future
+     role needs it. */
   .journey .jr-label {
     fill: var(--text-color);
     font-size: 13px;
     font-weight: 600;
+    pointer-events: none;
+    paint-order: stroke;
+    stroke: var(--main-bg);
+    stroke-width: 3px;
+    stroke-linejoin: round;
+  }
+
+  /* Star ratings ride in the company label as a tspan, so they follow the
+     label's placement automatically. Smaller and lighter than the name, so the
+     label still reads as a name first and a score second.
+
+     Gold is stepped per surface rather than shared: #b8860b is only 3.25:1 on
+     white, below the 4.5:1 small-text bar, so light mode uses a darker step.
+     Both are checked against Chirpy's real surfaces (#ffffff, #1b1b1e). The
+     numeric rating is also in each bar's <title>, so the score is never
+     carried by color or glyph alone. */
+  .journey .jr-stars {
+    font-size: 11px;
+    font-weight: 500;
+    fill: #8a6508;
+    letter-spacing: 0.02em;
+  }
+
+  html[data-mode='dark'] .journey .jr-stars { fill: #e0b341; }
+
+  @media (prefers-color-scheme: dark) {
+    html:not([data-mode]) .journey .jr-stars { fill: #e0b341; }
+  }
+
+  /* Company mark chips. White in both themes on purpose: these are third-party
+     marks on their intended background, and most are dark-on-transparent, so a
+     surface-colored chip would swallow them in dark mode. The faint stroke
+     stops a white chip from dissolving into a light-colored bar. */
+  .journey .jr-logo rect {
+    fill: #ffffff;
+    stroke: rgba(0, 0, 0, 0.12);
+    stroke-width: 1;
+  }
+
+  /* The mark fills the chip and is clipped to the same 3px radius, so a logo
+     with its own opaque background (most icon marks) reads as a rounded tile
+     rather than a square poking out of a rounded white one. A transparent
+     mark just shows the white rect through instead. */
+  .journey .jr-logo image {
+    clip-path: inset(0 round 3px);
     pointer-events: none;
   }
 

@@ -30,7 +30,7 @@ Example front matter:
 ```yaml
 ---
 title: "My post title"
-date: 2026-05-17 09:00:00 -0700
+date: 2026-05-17
 categories: [Gradle]
 tags: [gradle, build-systems]
 ---
@@ -47,4 +47,5 @@ Edit `_config.yml` for:
 - avatar image
 - analytics
 
-Replace `assets/img/avatar.png` and `assets/img/social-preview.png` later with real images.
+`assets/img/social-preview.png` is still the placeholder. It is the image shown
+when a link to the site is shared, so it wants a real 1200x630 graphic.

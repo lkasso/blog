@@ -11,6 +11,27 @@ layout: home
   click one to read it, or click a bar for everything from that era.
 </p>
 
+<!--
+  Social links directly under the intro rather than leaving them to the sidebar.
+
+  Written out by hand rather than looped over `site.social.links`, because that
+  config holds bare URLs with no labels and exists to feed jekyll-seo-tag's
+  structured data. Deriving "Bluesky" from a bsky.app profile URL is guesswork;
+  two short lists that each do one job is the cheaper trade. If a link changes,
+  change it in both places.
+-->
+<p class="home-socials">
+  <a href="https://github.com/lkasso">GitHub</a>
+  <span aria-hidden="true">·</span>
+  <a href="https://x.com/oss_enterprise">X</a>
+  <span aria-hidden="true">·</span>
+  <a href="https://bsky.app/profile/oss_enterprise.bsky.social">Bluesky</a>
+  <span aria-hidden="true">·</span>
+  <a href="https://www.linkedin.com/in/laurakassovic/">LinkedIn</a>
+  <span aria-hidden="true">·</span>
+  <a href="mailto:laura@kassovic.com">Email</a>
+</p>
+
 {% include journey-banner.html %}
 
 <h2 id="writing-heading">Writing</h2>

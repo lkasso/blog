@@ -4,16 +4,24 @@ icon: fas fa-user
 order: 1
 ---
 
-I'm Laura Kassovic. I work at the intersection of open source, enterprise systems, build tooling, developer experience, and AI-assisted workflows.
+I'm Laura Kassovic. I started as an electrical engineer, spent a decade running
+a hardware company, and now I write documentation for a build tool.
 
-I currently work on Gradle, where I help developers understand and adopt complex build system features at scale. I write, build tools, debug real-world systems, and think a lot about what breaks when open source software meets enterprise reality.
+At **Intel** I did post-silicon validation on Sandy Bridge and Ivy Bridge, then
+logic design for the DDR PHY on Atom SoCs. In 2013 I left to start
+**MbientLab**, which built Bluetooth motion sensors and shipped more than two
+and a half million of them before we began winding it down this year. Along the
+way I co-created **Beacon**, an eddy current probe for 3D printers, with my
+husband Matt.
 
-This site is where I write about:
+Somewhere in there I worked out that the part of all this I liked most was
+explaining it. I took a technical writing job at **Unit21**, a fintech startup,
+and built their documentation from nothing. Since 2023 I have been at
+**Gradle**, where I look after the documentation for a build tool whose docs get
+well over a million visits a month, and increasingly do developer advocacy
+alongside it.
 
-- Gradle internals
-- Build systems and developer productivity
-- Open source in enterprise environments
-- AI workflows that actually work
-- Documentation, search, and developer experience
+The [timeline](/) on the home page
+lays it out, and each era has a post behind it.
 
-You can also find me as **@oss_enterprise**.
+This site is where my thoughts go.
