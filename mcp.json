@@ -1,0 +1,51 @@
+---
+layout: null
+---
+{%- assign eras = site.data.journey.roles | map: "category" -%}
+{%- assign post_eras = site.posts | map: "categories" | join: "," | split: "," | uniq | sort -%}
+{
+  "$schema": "https://porch.tools/schema/manifest.v1.json",
+  "version": 1,
+  "name": {{ site.title | jsonify }},
+  "description": {{ site.description | strip | jsonify }},
+  "tools": [
+    {
+      "name": "get_career_timeline",
+      "description": "Every role Laura has held, with title, dates, location, and a one-line summary.",
+      "source": "/data/journey.json"
+    },
+    {
+      "name": "get_role",
+      "description": "Details of one role, by company.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "company": { "type": "string", "enum": {{ eras | jsonify }} } },
+        "required": ["company"]
+      },
+      "source": "/data/journey.json",
+      "filter": { "from": "roles", "field": "company", "equals": "{company}" }
+    },
+    {
+      "name": "list_posts",
+      "description": "Every post on the site, newest first, with title, date, era, URL, and opening paragraph.",
+      "source": "/data/posts.json"
+    },
+    {
+      "name": "list_posts_for_era",
+      "description": "Posts written about one era of Laura's career. Personal holds essays not tied to a job.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "era": { "type": "string", "enum": {{ post_eras | jsonify }} } },
+        "required": ["era"]
+      },
+      "source": "/data/posts.json",
+      "filter": { "field": "era", "equals": "{era}" }
+    },
+    {
+      "name": "get_about",
+      "description": "Laura's bio and background.",
+      "source": "/about/"
+    }
+  ],
+  "includeGenericTools": true
+}

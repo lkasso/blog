@@ -1,0 +1,19 @@
+---
+layout: null
+---
+{
+  "roles": [
+    {%- for role in site.data.journey.roles %}
+    {
+      "company": {{ role.company | jsonify }},
+      "title": {{ role.title | jsonify }},
+      "start": {{ role.start | slice: 0, 4 | jsonify }},
+      "end": {% if role.end == "present" %}"present"{% else %}{{ role.end | slice: 0, 4 | jsonify }}{% endif %},
+      "location": {{ role.location | jsonify }},
+      "summary": {{ role.note | jsonify }},
+      "url": {{ role.url | jsonify }},
+      "posts": {{ role.category | slugify | prepend: "/categories/" | append: "/" | absolute_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ]
+}

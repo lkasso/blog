@@ -1,0 +1,21 @@
+---
+layout: null
+---
+# {{ site.title }}
+
+> {{ site.tagline }} {{ site.description | strip }}
+
+## Pages
+
+- [Home]({{ "/" | absolute_url }}): Career timeline and the full list of writing
+- [About]({{ "/about/" | absolute_url }}): Bio and background
+
+## Posts
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url | absolute_url }}): {{ post.categories | first }}, {{ post.date | date: "%Y-%m-%d" }}
+{%- endfor %}
+
+## Data
+
+- [Career timeline]({{ "/data/journey.json" | absolute_url }}): Every role as JSON
+- [Posts]({{ "/data/posts.json" | absolute_url }}): Every post as JSON
