@@ -133,3 +133,9 @@ Interview on MetaWear platform: size and washability improvements, Bluetooth 5 c
 Discussed three areas where wearables improve construction sites: worker safety monitoring (real-time health signals), insurance (accident data collection), workflow efficiency (hands-free data entry). MbientLab manufacturing model and sensor reliability at scale.
 
 ---
+
+## Reusable Demo Environments
+
+**Gradle Ephemeral CI Docker Images** — [Part 1](https://blog.gradle.org/gradle-on-ephemeral-ci-1), [Part 2](https://blog.gradle.org/gradle-on-ephemeral-ci-2), [Part 3](https://blog.gradle.org/gradle-on-ephemeral-ci-3)
+
+Three-part series on optimizing Gradle builds in ephemeral CI with ready-to-use Docker images. Provided Dockerfiles for primed Gradle environments with pre-populated caches, dependency caches, and build cache strategies. One-command setup (`docker build`/`docker pull`) for developers and CI systems to run consistent, optimized Gradle builds without manual configuration. Demonstrates building reusable, reproducible environments at scale.
