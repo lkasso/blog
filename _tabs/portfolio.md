@@ -1,17 +1,16 @@
 ---
 title: Portfolio
-permalink: /portfolio/
 ---
 
 ## Claude Code
 
-**Swift SDK for MetaWear** — Built with Claude Code. [GitHub](https://github.com/mbientlab/MetaWear-API-Swift)
+**Swift SDK for MetaWear** — [GitHub](https://github.com/mbientlab/MetaWear-API-Swift)
 
 Hardware SDKs for the MetaMotion wireless sensor platform. Full BLE transport layer, protocol implementation, all sensor modules (accelerometer, gyroscope, magnetometer, sensor fusion, barometer, GPS, LED, haptic, GPIO, timer, events, macros, serial passthrough, data processor chains, firmware OTA).
 
 896 unit tests. Hardware integration tests on real iOS devices. iOS app with modern design (iOS 17+ Liquid Glass), Demo Mode (no hardware required), 3D orientation visualization. Structured as 4 SwiftPM products with SwiftData persistence and CSV export.
 
-**Kotlin SDK for MetaWear** — Built with Claude Code. [GitHub](https://github.com/mbientlab/MetaWear-API-Kotlin)
+**Kotlin SDK for MetaWear** — [GitHub](https://github.com/mbientlab/MetaWear-API-Kotlin)
 
 Same feature set as Swift. Kotlin 2.1.20, minSdk 26, KMP-ready architecture separating protocol (pure JVM) from transport and persistence (Android).
 
@@ -21,7 +20,7 @@ Both shipping, in active use at scale.
 
 ---
 
-## Claude Ecosystem
+## Claude MCP
 
 **MCP Server: Career Timeline & Posts** — [mcp.laura.kassovic.com](https://mcp.laura.kassovic.com/)
 
@@ -31,9 +30,14 @@ Static site MCP server exposing career data via standard MCP tools. Schemas for 
 
 ## Claude Skills
 
+**Beacon Support Skill** — 1,624 Discord threads + 402 email threads. Safety policies baked in.
+
+**MbientLab Support Skill** — Multi-language API support (Swift, Kotlin, C++, Python). 520+ real support messages indexed and searchable.
+
 **Gradle Skills** — [github.com/gradle/gradle-skills](https://github.com/gradle/gradle-skills)
 
 Built and shipped with team. Two production skills: `gradle-best-practices` and `gradle-wrapper-upgrade`. Each skill is a self-contained instruction set with:
+
 - Clear step-by-step instructions for agents
 - Input/output schemas validated per step
 - Error handling and rollback logic
@@ -48,7 +52,7 @@ Design: Each skill trades off prescriptiveness (more instructions = less agent c
 
 ---
 
-## Production Agents
+## Claude Agents
 
 **Daily To-Do Aggregator** — Local Python server
 
@@ -58,21 +62,29 @@ Agent that runs every morning, aggregates to-dos from multiple sources (Slack, G
 
 Built with Claude API and a custom Gradle Skill. On every new PR to the main Gradle repository, the agent examines code changes, queries existing documentation, and automatically creates new docs, new upgrade guide entries, new release notes, or updates existing versions as needed. Catches what needs documenting without human intervention. Solves field friction: code ships faster than docs. Demonstrates content-freshness automation, agentic multi-step reasoning, and feedback loop (code change → intelligent doc update).
 
+**Gradle Contribution Agents** — [github.com/gradle/gradle/.agents](https://github.com/gradle/gradle/tree/master/.agents)
+
+Co-authored and maintain 5 developer guidance agents in the Gradle repository: **API Changes**, **Building**, **Code Review**, **Testing**, and **Tooling**. Each agent is a structured instruction set that helps contributors navigate complex processes:
+
+- **API Changes** — Guidance on public vs. internal API, nullability annotations (@NullMarked, @Nullable, @since versioning), binary compatibility checks with `sanityCheck`.
+- **Building** — Build commands, project structure (platforms, subprojects), language levels, avoiding full-build pitfalls (`./gradlew build`), best practices for targeting and compilation.
+- **Code Review** — Reviews follow the [Code Review guide](https://github.com/gradle/gradle/blob/master/contributing/CodeReview.md)—scope detection, correctness bugs, API violations, edge cases, security; excludes style and formatting. Output: structured findings with severity levels.
+- **Testing** — Spock test framework, unit vs. integration tests (forkingIntegTest, configCacheIntegTest), helpers, patterns for testing Gradle builds; linked to GitHub issues.
+- **Tooling** — Git commit message rules (7-rule format), IDE integration (IntelliJ diagnostics), relative paths for code navigation.
+
+Demonstrates agentic guidance systems at scale: teaching agents (and humans) how to contribute correctly, reducing friction on large codebases, and embedding domain expertise into repeatable instruction sets.
+
 ---
 
-## Agent Skills
-
-**Beacon Support Skill** — 1,624 Discord threads + 402 email threads. Safety policies baked in.
-
-**MbientLab Support Skill** — Multi-language API support (Swift, Kotlin, C++, Python). 520+ real support messages indexed and searchable.
-
----
-
-## Go-to-Market Partnerships
+## GTM & Partnerships
 
 **Gradle Security Subscription Launch** — [blog.gradle.org](https://blog.gradle.org/gradle-security-subscription)
 
-Led full product launch for paid security subscription. Coordinated with product on feature messaging (SLA-based fixes, extended maintenance, embargoed advance notice). Built enablement materials for sales. Worked directly with GTM teams and sales to pitch to enterprise customers (organizations with compliance obligations, running legacy Gradle versions). Direct partnership on customer calls and deal progression.
+Led full product launch for paid security subscription. Coordinated with product on feature messaging (SLA-based fixes, extended maintenance, embargoed advance notice). Built enablement materials for sales. Worked directly with GTM teams and sales to pitch to enterprise customers (organizations with compliance obligations, running legacy Gradle versions). Direct partnership on customer calls and deal progression:
+
+- [Website collateral](https://gradle.org/security-subscription/)
+- [end.of.life](https://github.com/endoflife-date/endoflife.date/pull/11012)
+- [Gradle EOL docs](https://docs.gradle.org/current/userguide/feature_lifecycle.html#eol_support)
 
 ---
 
@@ -92,45 +104,77 @@ Documentation process requires stress-testing features like a real user. Write r
 
 ---
 
-## Training & Enablement
+## Training, Support & Enablement
 
-**DPE University** — [dpeuniversity.gradle.com](https://dpeuniversity.gradle.com/app) | [YouTube Playlist](https://www.youtube.com/watch?v=QHb8nUQzw2s&list=PLLQbIfXVLZqHM_0cKVezM9vNoNzN_orfr)
+**DPE University** — [dpeuniversity.gradle.com](https://dpeuniversity.gradle.com/app)
 
-Gradle's hands-on training platform. Built course automation pipeline: Claude generates presentation slides + hands-on project + instructor script. `moss-tts-8b` synthesizes narration with voice cloning (your voice, not generic TTS). Assembled in Camtasia/DaVinci Resolve.
+Gradle's hands-on training platform. Built course automation pipeline: Claude generates presentation slides + hands-on project + instructor script. `moss-tts-8b` synthesizes narration with voice cloning (your voice, not generic TTS). Assembled in Camtasia/DaVinci Resolve. Best seen on [YouTube](https://www.youtube.com/watch?v=QHb8nUQzw2s&list=PLLQbIfXVLZqHM_0cKVezM9vNoNzN_orfr)
 
 Course creation: 1 week → 1–2 days (5–7x faster). Covers Gradle fundamentals, build optimization, enterprise patterns.
 
-**Gradle Community Support**
+**Gradle Community Support** - Daily support on [Gradle community forum](https://discuss.gradle.org/) and Slack. 
 
-Daily support on Gradle community forum and Slack. Answer technical questions, help developers debug build issues, provide architecture guidance, and identify patterns that feed back into documentation improvements. Direct signal from the field — understanding what developers struggle with and where the gaps are.
+Answer technical questions, help developers debug build issues, provide architecture guidance, and identify patterns that feed back into documentation improvements. Direct signal from the field — understanding what developers struggle with and where the gaps are.
 
-**Gradle Documentation Impact**
+**Gradle Documentation Impact** - Rebuilt [Gradle documentation](https://docs.gradle.org/current/userguide/userguide.html) architecture and content organization. 
 
-Rebuilt Gradle documentation architecture and content organization. Measured effectiveness through CSAT (customer satisfaction) scores. Post-rebuild improvement in developer satisfaction directly correlates to reduction in support friction and improved onboarding velocity. Demonstrates commitment to measuring enablement effectiveness beyond "content exists"—showing actual impact on user experience and satisfaction.
+Measured effectiveness through CSAT (customer satisfaction) scores. Post-rebuild improvement in developer satisfaction directly correlates to reduction in support friction and improved onboarding velocity. Demonstrates commitment to measuring enablement effectiveness beyond "content exists"—showing actual impact on user experience and satisfaction.
 
 ---
 
 ## Public Speaking & Advocacy
 
+**GitHub Universe 2025** — San Francisco, October 28, 2025
+
+Co-presented with Tom Tresansky on "Avoiding the next supply chain disaster using GitHub and Gradle." Covered the Dependency Submission Action, dependency scanning, and how to secure supply chains at scale. [Blog post](https://blog.gradle.org/avoid-supply-chain-disaster-with-github-gradle).
+
 **Gradle Build Cache Webinar** — [develocity.ai](https://develocity.ai/events/gradle-build-cache-07-25/), July 2025
 
 Co-hosted with Akshay Dayal. Covered local and remote build caching in Gradle: how reuse works, cache hit analysis, Develocity Build Cache for CI and shared machines, analytics tools, and certification through DPE University. Free online event for developers.
 
-**Sensors Expo & Conference 2018** — [Speaker Schedule](https://sensorsexpoconference2018.sched.com/speaker/laura_kassovic.1y39etiq)
+**API:World 2024** — Santa Clara, CA, November 6, 2024
+
+Co-presented with Baruch Sadogursky on "OpenAPI Extensibility: The Good, The Bad and The YAMLy" in the Developer Productivity Engineering track (3:00–3:25 pm PST). [Session page](https://apiworld2024.sched.com/event/1i1Z5/pro-session-api-openapi-extensibility-the-good-the-bad-and-the-yamly).
+
+**MIOTherapy Launch** — [Business Wire](https://www.businesswire.com/news/home/20190128005114/en), January 28, 2019
+
+Quoted as co-founder and CEO on MbientLab's physical therapy product launch. Coverage picked up by [ODT Magazine](https://www.odtmag.com/?p=16524), [Medical Design and Outsourcing](https://www.medicaldesignandoutsourcing.com/?p=251091), and [HIT Consultant](https://hitconsultant.net/?p=46428).
+
+**Sensors Expo & Conference** — [Speaker Schedule](https://sensorsexpoconference2018.sched.com/speaker/laura_kassovic.1y39etiq), 2018
 
 Spoke on MetaWear wearable sensor platform capabilities, wireless protocols, real-world IoT applications.
 
-**Medical Sensors Design Conference 2018** — [Speaker Schedule](https://medicalsensorsdesignconfere2018.sched.com/speaker/laura_kassovic.1y0nliqc)
+**Medical Sensors Design Conference** — [Speaker Schedule](https://medicalsensorsdesignconfere2018.sched.com/speaker/laura_kassovic.1y0nliqc), 2018
 
 Presented on miniaturized wearable sensors, medical-grade BLE design, data accuracy in motion sensing for health applications.
 
-**Arm Innovator Series** — [Hackster.io Video](https://www.hackster.io/videos/197)
+**IoT World 2018** — Santa Clara, 2018
 
-Interview on MetaWear platform: size and washability improvements, Bluetooth 5 capabilities for long-range wireless sensors, power efficiency gains, real-world deployment in health and fitness.
+MbientLab participated in Project Kairos startup program with Startup City showcase. [ReadWrite](https://readwrite.com/iot-world-2018-innovation-startups-and-awards/) coverage; also noted on [Parsers.vc](https://parsers.vc/startup/mbientlab.com).
 
 **AEC Business Interview: "Sensors for Smarter Construction"** — [Podcast](https://aec-business.com/sensors-smarter-construction-interview-laura-kassovic-mbientlab/), November 2016
 
 Discussed three areas where wearables improve construction sites: worker safety monitoring (real-time health signals), insurance (accident data collection), workflow efficiency (hands-free data entry). MbientLab manufacturing model and sensor reliability at scale.
+
+---
+
+## Press & Interviews
+
+**MetaWear Coin Kickstarter** — [Wareable](https://www.wareable.com/wearable-tech/metawear-coin-kickstarter-1292)
+
+Featured as CEO discussing MetaWear's mission: "what Arduino did for schools, we want to do for wearables."
+
+**MetaWear Launch** — [Make Magazine](https://makezine.com/?p=388924)
+
+Interviewed on the MetaWear board and its Kickstarter campaign.
+
+**MetaWear Kickstarter Coverage** — [Neoteo](https://www.neoteo.com/it/metawear-dispositivo-indossabile-kickstarter) (Italian)
+
+Featured as the engineer behind the MetaWear board.
+
+**Arm Innovator Series** — [Hackster.io Video](https://www.hackster.io/videos/197)
+
+Interview on MetaWear platform: size and washability improvements, Bluetooth 5 capabilities for long-range wireless sensors, power efficiency gains, real-world deployment in health and fitness.
 
 ---
 
