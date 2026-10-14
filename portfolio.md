@@ -68,6 +68,14 @@ Built with Claude API and a custom Gradle Skill. On every new PR to the main Gra
 
 ---
 
+## Go-to-Market Partnerships
+
+**Gradle Security Subscription Launch** — [blog.gradle.org](https://blog.gradle.org/gradle-security-subscription)
+
+Led full product launch for paid security subscription. Coordinated with product on feature messaging (SLA-based fixes, extended maintenance, embargoed advance notice). Built enablement materials for sales. Worked directly with GTM teams and sales to pitch to enterprise customers (organizations with compliance obligations, running legacy Gradle versions). Direct partnership on customer calls and deal progression.
+
+---
+
 ## Strategic Work
 
 **Gradle Is Going Agentic** — [blog.gradle.org](https://blog.gradle.org/gradle-is-going-agentic), August 2026
