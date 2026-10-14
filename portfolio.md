@@ -35,9 +35,9 @@ Co-authored with Tom Tresansky. Announces `gradle-best-practices` and `gradle-wr
 
 ## DPE University
 
-[dpeuniversity.gradle.com](https://dpeuniversity.gradle.com/app)
+[dpeuniversity.gradle.com](https://dpeuniversity.gradle.com/app) | [YouTube Playlist](https://www.youtube.com/watch?v=QHb8nUQzw2s&list=PLLQbIfXVLZqHM_0cKVezM9vNoNzN_orfr)
 
-Gradle's hands-on training platform. Built course automation pipeline: Claude generates presentation + project + script; speech synthesis produces narration; assembled in Camtasia/DaVinci Resolve.
+Gradle's hands-on training platform. Built course automation pipeline: Claude generates presentation + project + script. moss-tts-8b synthesizes narration with voice cloning. Assembled in Camtasia/DaVinci Resolve.
 
 Course creation: 1 week → 1–2 days (5–7x faster).
 
