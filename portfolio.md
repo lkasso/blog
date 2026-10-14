@@ -80,6 +80,10 @@ Course creation: 1 week → 1–2 days (5–7x faster). Covers Gradle fundamenta
 
 ## Public Speaking & Advocacy
 
+**Gradle Build Cache Webinar** — [develocity.ai](https://develocity.ai/events/gradle-build-cache-07-25/), July 2025
+
+Co-hosted with Akshay Dayal. Covered local and remote build caching in Gradle: how reuse works, cache hit analysis, Develocity Build Cache for CI and shared machines, analytics tools, and certification through DPE University. Free online event for developers.
+
 **Sensors Expo & Conference 2018** — [Speaker Schedule](https://sensorsexpoconference2018.sched.com/speaker/laura_kassovic.1y39etiq)
 
 Spoke on MetaWear wearable sensor platform capabilities, wireless protocols, real-world IoT applications.
