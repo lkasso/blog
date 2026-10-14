@@ -29,15 +29,30 @@ Static site MCP server exposing career data via standard MCP tools. Schemas for 
 
 ---
 
+## Claude Skills
+
+**Gradle Skills** — [github.com/gradle/gradle-skills](https://github.com/gradle/gradle-skills)
+
+Built and shipped with team. Two production skills: `gradle-best-practices` and `gradle-wrapper-upgrade`. Each skill is a self-contained instruction set with:
+- Clear step-by-step instructions for agents
+- Input/output schemas validated per step
+- Error handling and rollback logic
+- Testing against 7 LLM vendors
+- Metrics for success (accuracy, speed, safety)
+
+`gradle-best-practices` audits a build against Gradle's best practices (naming, organization, plugin usage, performance anti-patterns), reports violations, proposes fixes. Tested on real builds. Claude Sonnet 5 improved from 30 to 50 of 51 checks with skill enabled.
+
+`gradle-wrapper-upgrade` handles wrapper upgrades (download, pin checksum, verify build, rollback on failure). Tested on matrix of Gradle versions and build configurations.
+
+Design: Each skill trades off prescriptiveness (more instructions = less agent confusion) against flexibility (less instructions = agent can adapt). Both skills document why each instruction exists and what agents struggle with without it.
+
+---
+
 ## Agent Skills
 
 **Beacon Support Skill** — 1,624 Discord threads + 402 email threads. Safety policies baked in.
 
 **MbientLab Support Skill** — Multi-language API support (Swift, Kotlin, C++, Python). 520+ real support messages indexed and searchable.
-
-**Introducing Gradle Skills** — [blog.gradle.org](https://blog.gradle.org/introducing-gradle-skills), September 2026
-
-Co-authored with Tom Tresansky. `gradle-best-practices` audits builds against official best practices, proposes or applies fixes. `gradle-wrapper-upgrade` handles wrapper upgrades, pins checksums, verifies builds, rolls back on failure. Benchmarked across 7 LLM vendors. Claude Sonnet 5 rose from 30 to 50 of 51 checks with the skill enabled.
 
 ---
 
