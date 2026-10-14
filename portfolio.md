@@ -48,6 +48,18 @@ Design: Each skill trades off prescriptiveness (more instructions = less agent c
 
 ---
 
+## Production Agents
+
+**Daily To-Do Aggregator** — Local Python server
+
+Agent that runs every morning, aggregates to-dos from multiple sources (Slack, GitHub, emails), and creates a consolidated to-do list. Built with Claude API. Demonstrates multi-source integration, scheduled execution, and agentic decision-making on filtering and prioritization.
+
+**PR Documentation Agent** — Triggered on every PR to gradle/gradle
+
+Built with Claude API and a custom Gradle Skill. On every new PR to the main Gradle repository, the agent examines code changes, queries existing documentation, and automatically creates new docs, new upgrade guide entries, new release notes, or updates existing versions as needed. Catches what needs documenting without human intervention. Solves field friction: code ships faster than docs. Demonstrates content-freshness automation, agentic multi-step reasoning, and feedback loop (code change → intelligent doc update).
+
+---
+
 ## Agent Skills
 
 **Beacon Support Skill** — 1,624 Discord threads + 402 email threads. Safety policies baked in.
