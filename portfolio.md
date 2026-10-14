@@ -78,6 +78,10 @@ Co-authored with Tom Tresansky. Positions Gradle for agents as first-class users
 
 Co-authored. Guidelines for AI-assisted contributions to Gradle. Requires contributors to understand and justify their submissions. Disclosure of significant AI involvement. Human review and judgment as final gate on all contributions. Enforcement against low-effort AI-generated content and non-engagement in review.
 
+**Feature Evaluation & Product Feedback** — [GitHub Issues](https://github.com/gradle/gradle/issues?q=is%3Aissue+state%3Aopen+author%3Alkasso+label%3Aa%3Abug)
+
+Documentation process requires stress-testing features like a real user. Write release notes, which means identifying edge cases, confusing behavior, and gaps. File formal feedback via GitHub issues with `a:bug` and `a:feature` labels. Because team is small, also provide direct Slack feedback to engineers. Demonstrates understanding of what developers struggle with before features ship to the field, and closes the feedback loop from user experience back to product.
+
 ---
 
 ## Training & Enablement
