@@ -31,6 +31,10 @@ Co-authored with Tom Tresansky. Lays out why build tools need to serve agents (d
 
 Co-authored with Tom Tresansky. Announces `gradle-best-practices` and `gradle-wrapper-upgrade` skills, benchmarked across 7 LLM vendors. Every model scored higher with the skill. Claude Sonnet 5 rose from 30 to 50 of 51 checks on best practices.
 
+**AI Policy** — [github.com/gradle/gradle](https://github.com/gradle/gradle/blob/master/AI_POLICY.md)
+
+Co-authored. Gradle's guidelines for AI-assisted contributions. Sets expectations for disclosure, understanding, and engagement when submitting PRs and issues with significant AI involvement. Maintains human review and judgment as the final gate on all contributions.
+
 ---
 
 ## DPE University
