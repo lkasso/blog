@@ -21,6 +21,14 @@ Both shipping, in active use at scale.
 
 ---
 
+## Claude Ecosystem
+
+**MCP Server: Career Timeline & Posts** — [mcp.laura.kassovic.com](https://mcp.laura.kassovic.com/)
+
+Static site MCP server exposing career data via standard MCP tools. Schemas for `get_career_timeline` (all roles), `get_role` (by company), `list_posts` (all posts), `list_posts_for_era` (posts by era), `get_about` (bio). Runs on Jekyll; data sourced from `_data/journey.json` and `_posts/`. Tool discovery via `/mcp.json` manifest. Enables Claude or any MCP client to programmatically query structured career information.
+
+---
+
 ## Agent Skills
 
 **Beacon Support Skill** — 1,624 Discord threads + 402 email threads. Safety policies baked in.
