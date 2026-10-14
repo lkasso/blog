@@ -88,6 +88,10 @@ Gradle's hands-on training platform. Built course automation pipeline: Claude ge
 
 Course creation: 1 week → 1–2 days (5–7x faster). Covers Gradle fundamentals, build optimization, enterprise patterns.
 
+**Gradle Documentation Impact**
+
+Rebuilt Gradle documentation architecture and content organization. Measured effectiveness through CSAT (customer satisfaction) scores. Post-rebuild improvement in developer satisfaction directly correlates to reduction in support friction and improved onboarding velocity. Demonstrates commitment to measuring enablement effectiveness beyond "content exists"—showing actual impact on user experience and satisfaction.
+
 ---
 
 ## Public Speaking & Advocacy
