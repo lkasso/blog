@@ -16,5 +16,5 @@ gem "jekyll-include-cache"
 
 group :development, :test do
   gem "webrick"
-  gem "html-proofer", "~> 5.0"
+  gem "html-proofer", "~> 5.2"
 end
